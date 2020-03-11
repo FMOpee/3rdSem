@@ -3,13 +3,13 @@ A basic turn based 2D strategy board game which requires each of the three playe
 
 
 By: 
-    Fahim Morshed
-    BSSE 1102
-    IITDU
-    bsse1102@iit.du.ac.bd
+    Fahim Morshed.
+    BSSE 1102.
+    IITDU.
+    bsse1102@iit.du.ac.bd.
 
 Supervised by:
-    Dr. Md. Shariful Islam
+    Dr. Md. Shariful Islam.
 
 Special Thanks:
-    Niaz Morshed
+    Niaz Morshed.
