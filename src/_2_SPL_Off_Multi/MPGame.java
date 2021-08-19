@@ -51,7 +51,7 @@ public class MPGame{
     
     public static Player[] players = new Player[3];
     public static ImageView[] fruits = new ImageView[3];
-    public static int[] fruitsPosition = {24, 40, 70};
+    public static int[] fruitsPosition = {24, 41, 69};
     public static Boolean[] fruitsExistence = {true,true,true};
     public static ArrayList<ArrayList<Integer>> map1;
     public static ArrayList<ArrayList<Integer>> map2;
