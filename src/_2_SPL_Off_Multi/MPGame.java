@@ -386,52 +386,52 @@ public class MPGame{
             save.setOnAction(eventSave -> {
                 File resumeFile = new File("src\\_4_Files\\resume.txt");
 
-                String resumeStr;
+                StringBuilder resumeStr;
                 //map state
-                if (isOne) resumeStr = "1 ";
-                else resumeStr = "2 ";
+                if (isOne) resumeStr = new StringBuilder("1 ");
+                else resumeStr = new StringBuilder("2 ");
                 //game state
-                resumeStr +=riverCurrent+ " "+ turn + "\n" + players[0].getPosition() + " " + players[1].getPosition() + " " + players[2].getPosition() + "\n";
+                resumeStr.append(riverCurrent).append(" ").append(turn).append("\n").append(players[0].getPosition()).append(" ").append(players[1].getPosition()).append(" ").append(players[2].getPosition()).append("\n");
                 for (int i = 0; i < 3; i++) {
-                    if (fruitsExistence[i]) resumeStr += 1 + "\n";
-                    else resumeStr += 0 + "\n";
+                    if (fruitsExistence[i]) resumeStr.append(1 + "\n");
+                    else resumeStr.append(0 + "\n");
                 }
                 //deer er 6 porse kina
-                if (players[0].isPlaying()) resumeStr += 1 + " ";
-                else resumeStr += 0 + " ";
+                if (players[0].isPlaying()) resumeStr.append(1 + " ");
+                else resumeStr.append(0 + " ");
                 //deer er sharirik obostha
-                if (players[0].isInjured()) resumeStr += 1 + " ";
-                else if (players[0].isKilled()) resumeStr += 2 + " ";
-                else resumeStr += 0 + " ";
+                if (players[0].isInjured()) resumeStr.append(1 + " ");
+                else if (players[0].isKilled()) resumeStr.append(2 + " ");
+                else resumeStr.append(0 + " ");
                 //deer khaise kina
-                if (players[0].haveEaten()) resumeStr += 1 + "\n";
-                else resumeStr += 0 + "\n";
+                if (players[0].haveEaten()) resumeStr.append(1 + "\n");
+                else resumeStr.append(0 + "\n");
 
                 //hunter er 6 porse kina
-                if (players[1].isPlaying()) resumeStr += 1 + " ";
-                else resumeStr += 0 + " ";
+                if (players[1].isPlaying()) resumeStr.append(1 + " ");
+                else resumeStr.append(0 + " ");
                 //hunter er sharirik obostha
-                if (players[1].isInjured()) resumeStr += 1 + " ";
-                else if (players[1].isKilled()) resumeStr += 2 + " ";
-                else resumeStr += 0 + " ";
+                if (players[1].isInjured()) resumeStr.append(1 + " ");
+                else if (players[1].isKilled()) resumeStr.append(2 + " ");
+                else resumeStr.append(0 + " ");
                 //hunter khaise kina
-                if (players[1].haveEaten()) resumeStr += 1 + "\n";
-                else resumeStr += 0 + "\n";
+                if (players[1].haveEaten()) resumeStr.append(1 + "\n");
+                else resumeStr.append(0 + "\n");
 
                 //tiger er 6 porse kina
-                if (players[2].isPlaying()) resumeStr += 1 + " ";
-                else resumeStr += 0 + " ";
+                if (players[2].isPlaying()) resumeStr.append(1 + " ");
+                else resumeStr.append(0 + " ");
                 //tiger er sharirik obostha
-                if (players[2].isInjured()) resumeStr += 1 + " ";
-                else if (players[2].isKilled()) resumeStr += 2 + " ";
-                else resumeStr += 0 + " ";
+                if (players[2].isInjured()) resumeStr.append(1 + " ");
+                else if (players[2].isKilled()) resumeStr.append(2 + " ");
+                else resumeStr.append(0 + " ");
                 //tiger khaise kina
-                if (players[2].haveEaten()) resumeStr += 1 + "\n";
-                else resumeStr += 0 + "\n";
+                if (players[2].haveEaten()) resumeStr.append(1 + "\n");
+                else resumeStr.append(0 + "\n");
 
                 try {
                     FileWriter fr = new FileWriter(resumeFile);
-                    fr.write(resumeStr);
+                    fr.write(resumeStr.toString());
                     fr.close();
                 } catch (IOException ignored) {
                 }
