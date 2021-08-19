@@ -46,10 +46,10 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(5),sbComponents.get(9));
                         players[1].setPosition(-2);
                         playerGroup.getChildren().remove(players[1].getImage());
-                        hunterButton.setStyle(dead);
+                        hunterButton.setImage(buttonImages[5]);          //hunter dead
                         turn = 2;
-                        tigerButton.setStyle(playing);
-                        deerButton.setStyle(playable);
+                        tigerButton.setImage(buttonImages[7]);          //tiger playing
+                        deerButton.setImage(buttonImages[2]);          //deer dead
                     }
                     else if(players[1].isInjured() && players[2].isKilled()){       //bagh o mara gele horin jitse
                         players[1].setKilled(true);
@@ -57,7 +57,7 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(5),sbComponents.get(9));
                         players[1].setPosition(-2);
                         playerGroup.getChildren().remove(players[1].getImage());
-                        hunterButton.setStyle(dead);
+                        hunterButton.setImage(buttonImages[5]);          //hunter dead
                         turn = 3;
                         winningMessage.setText("DEER IS THE WINNER");
                         utilGroup.getChildren().removeAll(deerButton, tigerButton, hunterButton);
@@ -69,8 +69,8 @@ public class MoveMethods {
                         sbGroup.getChildren().removeAll(sbComponents.get(7));
                         sbGroup.getChildren().addAll(sbComponents.get(6));
                         turn = 1;
-                        deerButton.setStyle(playable);
-                        hunterButton.setStyle(playing);
+                        deerButton.setImage(buttonImages[0]);          //deer playable
+                        hunterButton.setImage(buttonImages[4]);          //hunter playing
                     }
                 }
                 else if(players[0].getPosition() ==  players[2].getPosition()){     //jodi baghere ahoto kore
@@ -80,10 +80,10 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(10),sbComponents.get(14));
                         players[2].setPosition(-2);
                         playerGroup.getChildren().remove(players[2].getImage());
-                        tigerButton.setStyle(dead);
+                        tigerButton.setImage(buttonImages[8]);          //tiger dead
                         turn = 1;
-                        hunterButton.setStyle(playing);
-                        deerButton.setStyle(playable);
+                        hunterButton.setImage(buttonImages[4]);          //hunter playing
+                        deerButton.setImage(buttonImages[0]);          //deer playable
                     }
                     else if(players[2].isInjured() && players[1].isKilled()){       //manush o mara gele horin jitse
                         players[2].setKilled(true);
@@ -91,7 +91,7 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(10),sbComponents.get(14));
                         players[2].setPosition(-2);
                         playerGroup.getChildren().remove(players[2].getImage());
-                        tigerButton.setStyle(dead);
+                        tigerButton.setImage(buttonImages[8]);          //tiger dead
                         turn = 3;
                         winningMessage.setText("DEER IS THE WINNER");
                         utilGroup.getChildren().removeAll(deerButton, tigerButton, hunterButton);
@@ -104,26 +104,26 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(11));
                         if(players[1].isKilled()){
                             turn = 2;
-                            deerButton.setStyle(playable);
-                            tigerButton.setStyle(playing);
+                            deerButton.setImage(buttonImages[0]);          //deer playable
+                            tigerButton.setImage(buttonImages[7]);          //tiger playing
                         }
                         else{
                             turn = 1;
-                            deerButton.setStyle(playable);
-                            hunterButton.setStyle(playing);
+                            deerButton.setImage(buttonImages[0]);          //deer playable
+                            hunterButton.setImage(buttonImages[4]);          //hunter playing
                         }
                     }
                 }
                 else{           // naile khali turn change hobe
                     if(!players[1].isKilled()){     // bagh mara gele horiner khela
                         turn = 1;
-                        hunterButton.setStyle(playing);
+                        hunterButton.setImage(buttonImages[4]);          //hunter playing
                     }
                     else{       // naile bagher khela
                         turn = 2;
-                        tigerButton.setStyle(playing);
+                        tigerButton.setImage(buttonImages[7]);          //tiger playing
                     }
-                    deerButton.setStyle(playable);
+                    deerButton.setImage(buttonImages[0]);          //deer playable
                 }
             });
             utilGroup.getChildren().add(temporary.get(i));
@@ -162,12 +162,12 @@ public class MoveMethods {
                     sbGroup.getChildren().addAll(sbComponents.get(0),sbComponents.get(4));
                     players[0].setPosition(-2);
                     playerGroup.getChildren().remove(players[0].getImage());
-                    deerButton.setStyle(dead);
+                    deerButton.setImage(buttonImages[2]);          //deer dead
                     
                     if(!players[2].isKilled()){         //bagh jibito thakle
                         turn = 2;
-                        hunterButton.setStyle(playable);
-                        tigerButton.setStyle(playing);
+                        hunterButton.setImage(buttonImages[3]);          //hunter playable
+                        tigerButton.setImage(buttonImages[7]);          //tiger playing
                     }
                     else{               //naile manush jitse
                         turn = 3;
@@ -184,10 +184,10 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(10),sbComponents.get(14));
                         players[2].setPosition(-2);
                         playerGroup.getChildren().remove(players[2].getImage());
-                        tigerButton.setStyle(dead);
+                        tigerButton.setImage(buttonImages[8]);          //tiger dead
                         turn = 0;
-                        deerButton.setStyle(playing);
-                        hunterButton.setStyle(playable);
+                        deerButton.setImage(buttonImages[1]);          //deer playing
+                        hunterButton.setImage(buttonImages[3]);          //hunter playable
                     }
                     else if(players[2].isInjured() && players[0].isKilled()){       //horin o mara gele manush jitse
                         players[2].setKilled(true);
@@ -195,7 +195,7 @@ public class MoveMethods {
                         sbGroup.getChildren().addAll(sbComponents.get(10),sbComponents.get(14));
                         players[2].setPosition(-2);
                         playerGroup.getChildren().remove(players[2].getImage());
-                        tigerButton.setStyle(dead);
+                        tigerButton.setImage(buttonImages[8]);          //tiger dead
                         turn = 3;
                         winningMessage.setText("HUNTER IS THE WINNER");
                         utilGroup.getChildren().removeAll(deerButton, tigerButton, hunterButton);
@@ -207,20 +207,20 @@ public class MoveMethods {
                         sbGroup.getChildren().removeAll(sbComponents.get(12));
                         sbGroup.getChildren().addAll(sbComponents.get(11));
                         turn = 2;
-                        hunterButton.setStyle(playable);
-                        tigerButton.setStyle(playing);
+                        hunterButton.setImage(buttonImages[3]);          //hunter playable
+                        tigerButton.setImage(buttonImages[7]);          //tiger playing
                     }
                 }
                 else{           // naile khali turn change hobe
                     if(players[2].isKilled()){     // bagh mara gele horiner khela
                         turn = 0;
-                        deerButton.setStyle(playing);
+                        deerButton.setImage(buttonImages[1]);          //deer playing
                     }
                     else{       // naile bagher khela
                         turn = 2;
-                        tigerButton.setStyle(playing);
+                        tigerButton.setImage(buttonImages[7]);          //tiger playing
                     }
-                    hunterButton.setStyle(playable);
+                    hunterButton.setImage(buttonImages[3]);          //hunter playable
                 }
             });
             utilGroup.getChildren().add(temporary.get(i));
@@ -259,10 +259,10 @@ public class MoveMethods {
                     playerGroup.getChildren().remove(players[0].getImage());
                     sbGroup.getChildren().remove(sbComponents.get(2));
                     sbGroup.getChildren().addAll(sbComponents.get(0),sbComponents.get(4));
-                    deerButton.setStyle(dead);
+                    deerButton.setImage(buttonImages[2]);          //deer dead
                     turn = 1;             // tahole ebar manusher dan
-                    hunterButton.setStyle(playing);
-                    tigerButton.setStyle(playable);
+                    hunterButton.setImage(buttonImages[4]);          //hunter playing
+                    tigerButton.setImage(buttonImages[6]);          //tiger playable
                 }
                 else if(players[2].getPosition() == players[1].getPosition()){    // ar jodi manushke kheye fele tahole
                     players[1].setKilled(true);
@@ -278,21 +278,21 @@ public class MoveMethods {
                         sbGroup.getChildren().remove(sbComponents.get(7));
                     
                     sbGroup.getChildren().addAll(sbComponents.get(5),sbComponents.get(9));
-                    hunterButton.setStyle(dead);
+                    hunterButton.setImage(buttonImages[5]);          //hunter dead
                     players[1].setPosition(-1);
                     turn = 0;            // horin er e dan hobe er por
-                    deerButton.setStyle(playing);
-                    tigerButton.setStyle(playable);
+                    deerButton.setImage(buttonImages[1]);          //deer playing
+                    tigerButton.setImage(buttonImages[6]);          //tiger playable
                 }
                 else if(players[0].isKilled() && ! players[1].isKilled()){     // jodi kono khawa khawi na hoy ar horin allready mara giye thake
                     turn = 1;
-                    hunterButton.setStyle(playing);
-                    tigerButton.setStyle(playable);
+                    hunterButton.setImage(buttonImages[4]);          //hunter playing
+                    tigerButton.setImage(buttonImages[6]);          //tiger playable
                 }
                 else if(!players[0].isKilled()){                     // horin jibito thakle dan horin er
                     turn = 0;
-                    deerButton.setStyle(playing);
-                    tigerButton.setStyle(playable);
+                    deerButton.setImage(buttonImages[1]);          //deer playing
+                    tigerButton.setImage(buttonImages[6]);          //tiger playable
                 }
                     
                 if(players[0].isKilled() && players[1].isKilled() && players[2].haveEaten()){           // horin, manush 2 jon e mara gele bagh jitse
