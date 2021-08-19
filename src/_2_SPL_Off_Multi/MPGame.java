@@ -40,9 +40,10 @@ public class MPGame{
     public static ImageView river1;
     public static ImageView river2;
     public static int riverCurrent;
-    public static Button deerButton = new Button("DEER");
-    public static Button hunterButton = new Button("HUNTER");
-    public static Button tigerButton = new Button("TIGER");
+    public static ImageView deerButton;
+    public static ImageView hunterButton;
+    public static ImageView tigerButton;
+    public static Image[] buttonImages;
     public static Label winningMessage = new Label("");
     public static Label title = new Label("Mammal Royale");
     public static Label timer = new Label("00 : 00");
@@ -63,10 +64,6 @@ public class MPGame{
     public static int seconds = 0;
     public static boolean isOne = true;
     public static boolean isEnded = false;
-    
-    public static String playing = "-fx-background-color:#196F3D; -fx-font-size: 1em; -fx-border-width: 1px; -fx-border-color: #000000";
-    public static String playable = "-fx-background-color:#82E0AA ; -fx-font-size: 1em; -fx-border-width: 1px; -fx-border-color: #000000";
-    public static String dead = "-fx-background-color:#566573; -fx-font-size: 1em; -fx-border-width: 1px; -fx-border-color: #000000";
 
     /**Normal multiplayer stuffs*/
     public MPGame(Stage primaryStage, int rc) throws IOException {
@@ -162,24 +159,45 @@ public class MPGame{
         return playerGroup;
     }
 
-    private static Group utilGenerator(){
-        winningMessage.setTranslateX(100);             //setting the place for random number
+    private static Group utilGenerator() throws FileNotFoundException {
+        winningMessage.setTranslateX(100);             //setting the place for the text that will apear when the game ends
         winningMessage.setTranslateY(640);
-        
-        deerButton.setTranslateX(36);
+
+        buttonImages = new Image[]{
+                new Image(new FileInputStream("src\\_3_photo\\players\\deer.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\deer1.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\deer2.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\hunter.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\hunter1.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\hunter2.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\tiger.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\tiger1.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\tiger2.png")),
+        };
+
+        deerButton = new ImageView ();
+        deerButton.setImage(buttonImages[1]);          //deer playing
+        deerButton.setTranslateX(95);
         deerButton.setTranslateY(610);
-        deerButton.setStyle(playing);
-        deerButton.setOnAction(e -> deerPressed());
+        deerButton.setFitHeight(50);
+        deerButton.setFitWidth(50);
+        deerButton.setOnMouseClicked(e -> deerPressed());
 
-        hunterButton.setTranslateX(270);
+        hunterButton = new ImageView ();
+        hunterButton.setImage(buttonImages[3]);          //hunter playable
+        hunterButton.setTranslateX(275);
         hunterButton.setTranslateY(610);
-        hunterButton.setStyle(playable);
-        hunterButton.setOnAction(e -> manPressed());
+        hunterButton.setFitHeight(50);
+        hunterButton.setFitWidth(50);
+        hunterButton.setOnMouseClicked(e -> manPressed());
 
-        tigerButton.setTranslateX(517);
+        tigerButton = new ImageView ();
+        tigerButton.setImage(buttonImages[6]);          //tiger playable
+        tigerButton.setTranslateX(455);
         tigerButton.setTranslateY(610);
-        tigerButton.setStyle(playable);
-        tigerButton.setOnAction(e -> tigerPressed());
+        tigerButton.setFitHeight(50);
+        tigerButton.setFitWidth(50);
+        tigerButton.setOnMouseClicked(e -> tigerPressed());
 
         utilGroup.getChildren().addAll(deerButton, hunterButton,tigerButton, winningMessage); //adding these to window
         return utilGroup;
@@ -501,24 +519,24 @@ public class MPGame{
 
         deerButton.setTranslateX(36);
         deerButton.setTranslateY(610);
-        if(turn==0) deerButton.setStyle(playing);
-        else if(states[0][1]==2) deerButton.setStyle(dead);
-        else deerButton.setStyle(playable);
-        deerButton.setOnAction(e -> deerPressed());
+        if(turn==0) deerButton.setImage(buttonImages[1]);          //deer playing
+        else if(states[0][1]==2) deerButton.setImage(buttonImages[2]);          //deer dead
+        else deerButton.setImage(buttonImages[0]);          //deer playable
+        deerButton.setOnMouseClicked(e -> deerPressed());
 
         hunterButton.setTranslateX(270);
         hunterButton.setTranslateY(610);
-        if(turn==1) hunterButton.setStyle(playing);
-        else if(states[1][1]==2) hunterButton.setStyle(dead);
-        else hunterButton.setStyle(playable);
-        hunterButton.setOnAction(e -> manPressed());
+        if(turn==1) hunterButton.setImage(buttonImages[4]);          //hunter playing
+        else if(states[1][1]==2) hunterButton.setImage(buttonImages[5]);          //hunter dead
+        else hunterButton.setImage(buttonImages[3]);          //hunter playable
+        hunterButton.setOnMouseClicked(e -> manPressed());
 
         tigerButton.setTranslateX(517);
         tigerButton.setTranslateY(610);
-        if(turn==2) tigerButton.setStyle(playing);
-        else if(states[2][1]==2) tigerButton.setStyle(dead);
-        else tigerButton.setStyle(playable);
-        tigerButton.setOnAction(e -> tigerPressed());
+        if(turn==2) tigerButton.setImage(buttonImages[7]);          //tiger playing
+        else if(states[2][1]==2) tigerButton.setImage(buttonImages[8]);          //tiger dead
+        else tigerButton.setImage(buttonImages[6]);          //tiger playable
+        tigerButton.setOnMouseClicked(e -> tigerPressed());
 
         utilGroup.getChildren().addAll(deerButton, hunterButton,tigerButton, winningMessage); //adding these to window
         return utilGroup;
