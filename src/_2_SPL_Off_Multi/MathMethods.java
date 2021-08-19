@@ -128,7 +128,7 @@ public class MathMethods {
 
         Task<Void> sleeper = new Task<Void>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call() {
             try {
                 Thread.sleep(1020);      //to make it sleep while the player is still moving
             } catch (InterruptedException ignored) {}
