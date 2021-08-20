@@ -128,9 +128,7 @@ public class Utils {
                                     players[1].setPosition(-2);
                                     playerGroup.getChildren().remove(players[1].getImage());
                                     hunterButton.setImage(buttonImages[5]);          //hunter dead
-                                    turn = 2;
-                                    tigerButton.setImage(buttonImages[7]);          //tiger playing
-                                    deerButton.setImage(buttonImages[0]);          //deer playable
+                                    turn = 0;                                       //horin mair dan paibe so dan change hobe na
                                 }
                                 else if(players[1].isInjured() && players[2].isKilled()){       //bagh o mara gele horin jitse
                                     players[1].setKilled(true);
@@ -149,9 +147,7 @@ public class Utils {
                                     players[1].setInjured(true);
                                     sbGroup.getChildren().removeAll(sbComponents.get(7));
                                     sbGroup.getChildren().addAll(sbComponents.get(6));
-                                    turn = 1;
-                                    deerButton.setImage(buttonImages[0]);          //deer playable
-                                    hunterButton.setImage(buttonImages[4]);        //hunter playing
+                                    turn = 0;                                      //horin mair-dain pabe so dan o change hobe na
                                 }
                             }
                             else if(players[0].getPosition() ==  players[2].getPosition()){     //jodi baghere ahoto kore
@@ -162,9 +158,7 @@ public class Utils {
                                     players[2].setPosition(-2);
                                     playerGroup.getChildren().remove(players[2].getImage());
                                     tigerButton.setImage(buttonImages[8]);          //tiger dead
-                                    turn = 1;
-                                    hunterButton.setImage(buttonImages[4]);          //hunter playing
-                                    deerButton.setImage(buttonImages[0]);          //deer playable
+                                    turn = 0;                                       //horin mair-dain pabe so dan change hobe na
                                 }
                                 else if(players[2].isInjured() && players[1].isKilled()){       //manush o mara gele horin jitse
                                     players[2].setKilled(true);
@@ -183,16 +177,7 @@ public class Utils {
                                     players[2].setInjured(true);
                                     sbGroup.getChildren().removeAll(sbComponents.get(12));
                                     sbGroup.getChildren().addAll(sbComponents.get(11));
-                                    if(players[1].isKilled()){
-                                        turn = 2;
-                                        deerButton.setImage(buttonImages[0]);          //deer playable
-                                        tigerButton.setImage(buttonImages[7]);          //tiger playing
-                                    }
-                                    else{
-                                        turn = 1;
-                                        deerButton.setImage(buttonImages[0]);          //deer playable
-                                        hunterButton.setImage(buttonImages[4]);          //hunter playing
-                                    }
+                                    turn = 0;                                      //HORIN MAIR-DAIN PABE. SO turn change hobe na
                                 }
                             }
                             else{           // naile khali turn change hobe
@@ -339,9 +324,7 @@ public class Utils {
                                 deerButton.setImage(buttonImages[2]);          //deer dead
 
                                 if(!players[2].isKilled()){         //bagh jibito thakle
-                                    turn = 2;
-                                    hunterButton.setImage(buttonImages[3]);          //hunter playable
-                                    tigerButton.setImage(buttonImages[7]);          //tiger playing
+                                    turn = 1;                               //hunter mair-dain pabe. so turn change hobe na
                                 }
                                 else{               //naile manush jitse
                                     turn = 3;
@@ -359,9 +342,7 @@ public class Utils {
                                     players[2].setPosition(-2);
                                     playerGroup.getChildren().remove(players[2].getImage());
                                     tigerButton.setImage(buttonImages[8]);          //tiger dead
-                                    turn = 0;
-                                    deerButton.setImage(buttonImages[1]);          //deer playing
-                                    hunterButton.setImage(buttonImages[3]);          //hunter playable
+                                    turn = 1;                                       //hunter mair-dain pabe. so turn change hobe na
                                 }
                                 else if(players[2].isInjured() && players[0].isKilled()){       //horin o mara gele manush jitse
                                     players[2].setKilled(true);
@@ -380,9 +361,7 @@ public class Utils {
                                     players[2].setInjured(true);
                                     sbGroup.getChildren().removeAll(sbComponents.get(12));
                                     sbGroup.getChildren().addAll(sbComponents.get(11));
-                                    turn = 2;
-                                    hunterButton.setImage(buttonImages[3]);          //hunter playable
-                                    tigerButton.setImage(buttonImages[7]);          //tiger playing
+                                    turn = 1;                                       //hunter mair-dain pabe. so turn change hobe na
                                 }
                             }
                             else{           // naile khali turn change hobe
@@ -501,9 +480,7 @@ public class Utils {
                                     players[2].setEaten(true);
                                 }
                                 deerButton.setImage(buttonImages[2]);          //deer dead
-                                turn = 1;             // tahole ebar manusher dan
-                                hunterButton.setImage(buttonImages[4]);          //hunter playing
-                                tigerButton.setImage(buttonImages[6]);          //tiger playable
+                                turn = 2;             // bagh mair-dain pabe. so turn change hobe na
                             }
                             else if(players[2].getPosition() == players[1].getPosition()){    // ar jodi manushke kheye fele tahole
                                 players[1].setKilled(true);
@@ -521,9 +498,7 @@ public class Utils {
                                 }
                                 hunterButton.setImage(buttonImages[5]);          //hunter dead
                                 players[1].setPosition(-1);
-                                turn = 0;            // horin er e dan hobe er por
-                                deerButton.setImage(buttonImages[1]);          //deer playing
-                                tigerButton.setImage(buttonImages[6]);          //tiger playable
+                                turn = 2;             // bagh mair-dain pabe. so turn change hobe na
                             }
                             else if(players[0].isKilled() && ! players[1].isKilled()){     // jodi kono khawa khawi na hoy ar horin allready mara giye thake
                                 turn = 1;
