@@ -58,7 +58,7 @@ public class Launcher extends Application{
         ImageView firstMenuBG = new ImageView (new Image (new FileInputStream ("src\\_3_photo\\board\\MenuBG.png")));
         firstMenuBG.setOpacity(.60);
 
-        Button loadButton = new Button("Load Game");
+        Button loadButton = new Button("CONTINUE");
         loadButton.setMinSize(150,50);
         loadButton.setTranslateX(57);
         loadButton.setTranslateY(75);
@@ -68,13 +68,13 @@ public class Launcher extends Application{
             } catch (FileNotFoundException ignored) {}
         });
 
-        Button spButton = new Button("Back");
+        Button spButton = new Button("EXIT");
         spButton.setMinSize(150, 50);
         spButton.setTranslateX(457);
         spButton.setTranslateY(75);
         spButton.setOnAction(event -> primaryStage.setScene(startScene));
         
-        Button mpButton = new Button("Multi  Player");
+        Button mpButton = new Button("NEW GAME");
         mpButton.setMinSize(150,50);
         mpButton.setTranslateX(257);
         mpButton.setTranslateY(75);
