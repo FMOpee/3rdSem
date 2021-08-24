@@ -513,26 +513,47 @@ public class MPGame{
         return sbGroup;
     }
 
-    private static Group utilGeneratorResume(int turn, int[][] states){
+    private static Group utilGeneratorResume(int turn, int[][] states) throws FileNotFoundException {
         winningMessage.setTranslateX(298);             //setting the place for random number
         winningMessage.setTranslateY(640);
 
-        deerButton.setTranslateX(36);
+        buttonImages = new Image[]{
+                new Image(new FileInputStream("src\\_3_photo\\players\\deer.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\deer1.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\deer2.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\hunter.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\hunter1.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\hunter2.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\tiger.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\tiger1.png")),
+                new Image(new FileInputStream("src\\_3_photo\\players\\tiger2.png")),
+        };
+
+        deerButton = new ImageView();
+        deerButton.setTranslateX(95);
         deerButton.setTranslateY(610);
+        deerButton.setFitHeight(50);
+        deerButton.setFitWidth(50);
         if(turn==0) deerButton.setImage(buttonImages[1]);          //deer playing
         else if(states[0][1]==2) deerButton.setImage(buttonImages[2]);          //deer dead
         else deerButton.setImage(buttonImages[0]);          //deer playable
         deerButton.setOnMouseClicked(e -> deerPressed());
 
-        hunterButton.setTranslateX(270);
+        hunterButton = new ImageView();
+        hunterButton.setTranslateX(275);
         hunterButton.setTranslateY(610);
+        hunterButton.setFitWidth(50);
+        hunterButton.setFitHeight(50);
         if(turn==1) hunterButton.setImage(buttonImages[4]);          //hunter playing
         else if(states[1][1]==2) hunterButton.setImage(buttonImages[5]);          //hunter dead
         else hunterButton.setImage(buttonImages[3]);          //hunter playable
         hunterButton.setOnMouseClicked(e -> manPressed());
 
-        tigerButton.setTranslateX(517);
+        tigerButton = new ImageView();
+        tigerButton.setTranslateX(455);
         tigerButton.setTranslateY(610);
+        tigerButton.setFitHeight(50);
+        tigerButton.setFitWidth(50);
         if(turn==2) tigerButton.setImage(buttonImages[7]);          //tiger playing
         else if(states[2][1]==2) tigerButton.setImage(buttonImages[8]);          //tiger dead
         else tigerButton.setImage(buttonImages[6]);          //tiger playable
