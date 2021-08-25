@@ -1,0 +1,8 @@
+mapState riverCurrent turn
+deerPosition hunterPosition tigerPosition
+fruitExistence
+fruitExistence
+fruitExistence
+isPlaying/Not isInjured/Killed/OK hasEaten/Not        of deer
+isPlaying/Not isInjured/Killed/OK hasEaten/Not        of hunter
+isPlaying/Not isInjured/Killed/OK hasEaten/Not        of tiger
