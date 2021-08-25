@@ -83,7 +83,7 @@ public class Utils {
                             }
                             else{           // Ar naile khela stealmate
                                 turn = 3;
-                                winningMessage.setText("STEALMATE");
+                                winningMessage.setText("DEER IS THE WINNER");
                                 utilGroup.getChildren().removeAll(deerButton, tigerButton, hunterButton);
                                 playerGroup.getChildren().removeAll(players[2].getImage());
                                 isEnded =true;
@@ -442,13 +442,13 @@ public class Utils {
 
                             if(players[0].isKilled() && players[1].haveEaten()){    //bagh, horin more gele ar manusher khawa hoile se jitbe
                                 turn = 3;
-                                winningMessage.setText("HUNTER IS WINNER");
+                                winningMessage.setText("HUNTER IS THE WINNER");
                                 utilGroup.getChildren().removeAll(deerButton, hunterButton, tigerButton);
                                 isEnded =true;
                             }
-                            else if(players[0].isKilled() && !players[1].haveEaten()){  // bagher khawa na hoile match shesh. keu jite nai
+                            else if(players[0].isKilled() && !players[1].haveEaten()){  // manusher khawa na hoile match shesh. keu jite nai
                                 turn = 3;
-                                winningMessage.setText("STALEMATE");
+                                winningMessage.setText("HUNTER IS THE WINNER");
                                 utilGroup.getChildren().removeAll(deerButton, hunterButton, tigerButton);
                                 isEnded =true;
                             }
